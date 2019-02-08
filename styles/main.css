@@ -338,3 +338,95 @@ link-text{
 
 
 /* MEDIA STUFF */
+#header-search-bar{
+  width:600px !important;
+}
+@media screen and (max-width: 1020px){
+  #header-search-bar{
+    width:550px !important;
+  }
+}
+@media screen and (max-width: 980px){
+  #header-search-bar{
+    width:500px !important;
+  }
+}
+@media screen and (max-width: 920px){
+  #header-search-bar{
+    width:420px !important;
+  }
+}
+@media screen and (max-width: 830px){
+  #header-search-bar{
+    width:380px !important;
+  }
+}
+@media screen and (max-width: 785px){
+  #header-search-bar{
+    width:320px !important;
+  }
+}
+@media screen and (max-width: 750px){
+  #header-search-bar{
+    width:300px !important;
+  }
+}
+@media screen and (max-width: 720px){
+  #header-search-bar{
+    width:250px !important;
+  }
+}
+@media screen and (max-width: 650px){
+  #header-search-bar{
+    width:220px !important;
+  }
+@media screen and (max-width: 620px){
+  #header-search-bar{
+    width:200px !important;
+  }
+}
+@media screen and (max-width: 600px){
+  #header-search-bar{
+    width:230px !important;
+  }
+}
+@media screen and (max-width: 565px){
+  #header-search-bar{
+    width:200px !important;
+  }
+}
+@media screen and (max-width: 540px){
+  #header-search-bar{
+    width:180px !important;
+  }
+}
+@media screen and (max-width: 520px){
+  #header-search-bar{
+    width:175px !important;
+  }
+}
+@media screen and (max-width: 510px){
+  #header-search-bar{
+    width:150px !important;
+  }
+}
+@media screen and (max-width: 480px){
+  #header-search-bar{
+    width:130px !important;
+  }
+}
+@media screen and (max-width: 460px){
+  #header-search-bar{
+    width:115px !important;
+  }
+}
+@media screen and (max-width: 445px){
+  #header-search-bar{
+    width:100px !important;
+  }
+}
+@media screen and (max-width: 430px){
+  #header-search-bar{
+    width:50px !important;
+  }
+}
