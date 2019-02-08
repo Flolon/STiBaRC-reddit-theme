@@ -290,6 +290,7 @@ link-text{
   position: relative;
 }
 .sm-search-bar {
+  display:none;
   position: relative;
 }
 .itxuZb {
@@ -364,9 +365,6 @@ link-text{
 }
 .small-q:hover{
   background-color:#F5F5F5;
-}
-.sm-search-bar{
-  display:none;
 }
 
 
