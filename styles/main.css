@@ -1,13 +1,9 @@
-@font-face{font-family:IBMPlexSans;font-weight:400;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Regular-116bb6d508f5307861d3b1269bc597e7.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Regular-e6bbcdd30d3bd4d6b170bcb6d3552cab.woff) format("woff")}@font-face{font-family:IBMPlexSans;font-weight:500;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Medium-c4b185e25a4dde85a29f902cd5ce5360.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Medium-1051a531d3e1ee3483a6533158557139.woff) format("woff")}@font-face{font-family:IBMPlexSans;font-weight:700;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Bold-875de5047556e7c822519d95d7ee692d.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/IBMPlexSans/Bold-c34ba754b7235b49d33b294ff7a54179.woff) format("woff")}
-@font-face{font-family:Noto Sans;font-weight:400;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Regular-e50c34178d20d5fa4ab3c1f6c67901a9.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Regular-e6bbcdd30d3bd4d6b170bcb6d3552cab.woff) format("woff")}@font-face{font-family:Noto Sans;font-weight:400;font-style:italic;src:url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Italic-0b0b9b2b7159c9bc6463e7ab3b0e8bd0.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Italic-5267af566ab853eb9d74db1a78a46c67.woff) format("woff")}@font-face{font-family:Noto Sans;font-weight:700;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Bold-b85bf848c28799f5ad34ee29db68051c.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Bold-c34ba754b7235b49d33b294ff7a54179.woff) format("woff")}@font-face{font-family:Noto Sans;font-weight:700;font-style:italic;src:url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Bold-Italic-5a241c76c24e463ef9bcc5855d20209b.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/NotoSans/Bold-Italic-255b4934a1f414dd312aa89382d65114.woff) format("woff")}
-@font-face{font-family:Noto Mono;font-weight:400;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/NotoMono/Regular-b16bb0524a7e7ee597970333c0c67180.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/NotoMono/Regular-e6bbcdd30d3bd4d6b170bcb6d3552cab.woff) format("woff")}@font-face{font-family:Noto Mono;font-weight:400;font-style:normal;src:url(https://www.redditstatic.com/desktop2x/fonts/NotoMono/el-Regular-29d72243d2cd6145b28bcb80dc33f0e4.woff2) format("woff2"),url(https://www.redditstatic.com/desktop2x/fonts/NotoMono/el-Regular-06ee3f893717454d11a16c3e8d0aa9f9.woff) format("woff");unicode-range:u+0370-03ff,u+1f??}
-/* start of the good stuff */
 body{
   margin:0;
   line-height: 1;
   font-family: IBMPlexSans, Helvetica Neue, Segoe UI, Helvetica, Verdana, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color:rgba(240,240,240,.4);
+  background-color:#FFFFFF;
 }
 body ::-moz-selection {
   background-color: #7dbcff99;
@@ -32,7 +28,8 @@ div{
     color: rgb(26, 26, 27);
 }
 .body-content{
-  margin:56px 8px;
+  padding:56px 8px;
+  background-color:rgba(240,240,240,.4);
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 48px);
