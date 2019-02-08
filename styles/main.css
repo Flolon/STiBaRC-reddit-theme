@@ -35,6 +35,9 @@ div{
   flex-direction: column;
   min-height: calc(100vh - 48px);
 }
+body:after{
+  background-color:#dbe0e6;
+}
 .nav{
   z-index:9999999999;
   background-color: rgb(255, 255, 255);
