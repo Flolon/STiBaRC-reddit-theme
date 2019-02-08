@@ -416,6 +416,25 @@ link-text{
 #page .button:hover{
     background-color:#ededed;
 }
+#page textarea {
+    font-family: Noto Sans,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 21px
+}
+#comtent{
+    margin-top:-1rem;
+    padding: 8px;
+    margin-bottom: .5rem;
+    border-radius: 5px;
+    width:60%;
+    height: 5rem;
+    border-color:#838383;
+    background-color:#f7f7f7;
+}
+#comtent:active,#comtent:focus{
+    background-color:#FFFFFF;
+}
 #page .title{
     display: inline;
     color: rgb(26, 26, 27);
