@@ -139,6 +139,21 @@ window.onload = function() {
     document.getElementById("list").innerHTML =
       "Error loading posts. Device offline.";
   }
+  document.getElementById("search-btn").onclick = function(evt) {
+    searchBtnClicked();
+  };
   doneLoading();
   startNotifs();
 };
+
+//search btn //
+function searchBtnClicked(){
+  var searchBar = document.getElementById("sm-search-bar");
+  if(searchBar.style.display == "none"){
+    searchBar.style.display = "block";
+    searchBar.querySelector('input').autofocus = true;
+  }else{
+    searchBar.querySelector('input').autofocus = false;
+    searchBar.style.display = "none";
+  }
+}
