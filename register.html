@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>STiBaRC</title>
+    <title>Register - STiBaRC</title>
     <link rel="stylesheet" href="styles/reddit-fonts.css" />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
@@ -26,46 +26,32 @@
 <div class="body-content">
     <div class="sm-search-bar" id="sm-search-bar">
     <label for="sm-search-bar"><svg class="cHARgT" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path d="M12.4743167,11.1299698 L14.6957506,13.2817166 C15.0924476,13.665969 15.1025359,14.2990536 14.7182834,14.6957506 C14.334031,15.0924476 13.7009464,15.1025359 13.3042494,14.7182834 L11.0486163,12.5334103 C10.0079655,13.2768564 8.73367013,13.7142857 7.35714286,13.7142857 C3.84600096,13.7142857 1,10.8682847 1,7.35714286 C1,3.84600096 3.84600096,1 7.35714286,1 C10.8682847,1 13.7142857,3.84600096 13.7142857,7.35714286 C13.7142857,8.76975383 13.2536226,10.0747029 12.4743167,11.1299698 Z M11.7142857,7.35714286 C11.7142857,4.95057046 9.76371525,3 7.35714286,3 C4.95057046,3 3,4.95057046 3,7.35714286 C3,9.76371525 4.95057046,11.7142857 7.35714286,11.7142857 C9.76371525,11.7142857 11.7142857,9.76371525 11.7142857,7.35714286 Z"></path></g></svg></label><form action="https://stibarc.gq/search.html?q=" autocomplete="off" method="get"><input type="search" class="itxuZb" id="sm-search-bar" name="q" placeholder="Search STiBaRC" role="search" value=""></form></div>
-    <div id="load">
-        <div id="centerback">
-            <center>
-                <div class="loader">
-                </div>
-                <h2>Now Loading</h2>
-            </center>
-        </div>
+    <div id="page">
+    <div id="pword" style="display: none;color: #ea0027;">Passwords must match!<br/><br/></div>
+    <div id="blank" style="display: none;color: #ea0027;">Username or password cannot be blank!<br/><br/></div>
+    <div id="err" style="display: none;color: #ea0027;">Error registering!<br/><br/></div>
+    <div id="main">
+            <img style="width:50px;border-radius: 50%" src="https://benfiles.tk/STiBaRC-logo.png">
+        <h2>Join STiBaRC</h2>
+        <input type="text" id="name" placeholder="Name" autofocus>
+        <input type="checkbox" id="showname" checked>
+        <i style="font-size:70%">Show?</i><br />
+        <br />
+        <input type="text" id="username" placeholder="Username* (please no spaces)"><br /><br />
+        <input type="password" id="password" placeholder="Password*"><br /><br />
+        <input type="password" id="password2" placeholder="Repeat password*"><br /><br />
+        <input type="email" id="email" placeholder="Email">
+        <input type="checkbox" id="showemail"><i style="font-size:70%">Show?</i><br /><br />
+        <input type="text" id="bday" placeholder="Birthday">
+        <input type="checkbox" id="showbday"><i style="font-size:70%">Show?</i><br /><br />
+        <button class="btn" id="send">Register</button><br />
+        <i class="small-text">* indicating required field</i><br/>
+        <i class="small-text">By clicking "register", you agree to the following <a href="https://stibarc.gq/tos.html">Terms of Service</a> and <a href="https://stibarc.gq/privacy.html">Privacy Policy</a></i>
     </div>
-    <div id="page" style="display: none;">
-        <div id="poststuff">
-            <h2 id="title">Loading...</h2>
-            <div id="dateandstuff">Loading...</div><div id="edited" style="display:none"><i>Edited</i></div><br />
-            <div id="content">
-                Loading...
-            </div>
-            <div id="attachment" style="display:none">
-                <br /><button id="viewattachment">View attachment</button>
-            </div><br />
-            <a href="javascript:upvote()" class="button">&#8679; <span id="upvotes">0</span></a> <a href="javascript:downvote()" class="button">&#8681; <span id="downvotes">0</span></a>
-            <br /><button id="editlink" style="display:none">Edit post</button>
-            <br />
-            <div id="comments">
-                <h4 style="margin-bottom: .75rem">Comments:</h4>
-            </div>
-            <div style="margin-top:.75rem;" id="postout">
-                Log in to post a comment!
-            </div>
-            <div id="postin" style="display:none">
-                <div id="wait" style="display: none">Please wait x more seconds before commenting again<br /><br /></div>
-                <h4>New comment:</h4>
-<textarea id="comtent" name="comtent"></textarea><br />
-                <button class="btn" id="commentbutton">Submit</button>
-            </div>
-        </div>
-    </div>
- 
-              
+    <br/>
+</div>
   </div><!-- end body-content -->
-    <script src="scripts/global.js"></script>
-    <script src="scripts/post.js"></script>
+  <script src="scripts/global.js"></script>
+  <script src="scripts/login.js"></script>
       </body>
 </html>

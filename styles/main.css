@@ -21,6 +21,10 @@ div{
   font: inherit;
   vertical-align: baseline
 }
+a{
+    color: #0079d3;
+    text-decoration: none;
+}
 .list-title{
       font-size: 16px;
     font-weight: 500;
@@ -79,22 +83,20 @@ body:after{
   margin:0 auto;
 }
 .post{
-      background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     color: rgb(135, 138, 140);
     cursor: default;
     fill: rgb(135, 138, 140);
     margin-bottom: -1px;
     position: relative;
+    display: block;
     z-index: 0;
     max-width: 100%;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(204, 204, 204);
-    border-image: initial;
-    overflow: hidden;
     overflow-wrap: break-word;
     flex: 1 1 100%;
-
     overflow: hidden;
 }
 .post:hover{
@@ -131,6 +133,32 @@ link-text{
     text-transform: uppercase;
     padding: 0px 16px;
 }
+.user-post{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding:8px;
+    cursor: pointer;
+    fill: rgb(135, 138, 140);
+    color: rgb(34, 34, 34);
+    margin-bottom: -1px;
+    position: relative;
+    display: block;
+    z-index: 0;
+    max-width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    overflow-wrap: break-word;
+}
+.user-post:hover{
+  border-color: rgba(100, 100, 100, 1);
+  z-index:1;
+  margin-bottom: -1;
+}
+.user-post:active{
+  border-color: rgba(100, 100, 100, 1);
+  z-index:1;
+  margin-bottom: -1;
+}
 .flexy-boi{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -154,7 +182,7 @@ link-text{
 .post .post-list-boi{
   background-color:#FFFFFF;
   width:100%;
-  padding:10px;
+  padding:12px;
 }
 .btn{
   font-size: 12px;
@@ -418,21 +446,49 @@ link-text{
 }
 #page textarea {
     font-family: Noto Sans,sans-serif;
-    font-size: 12px;
+    /*font-size: 12px;*/
     font-weight: 400;
     line-height: 21px
 }
-#comtent{
+textarea{
     margin-top:-1rem;
-    padding: 8px;
+    padding: 12px;
     margin-bottom: .5rem;
-    border-radius: 5px;
     height: 5rem;
-    border-color:#838383;
-    background-color:#fcfcfc;
-    width:60%;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    width:50%;
+    background-color: #fcfcfb;
 }
-#comtent:active,#comtent:focus{
+textarea:active,textarea:focus{
+    background-color:#FFFFFF;
+}
+#page h5{
+    margin-bottom: .5rem;
+}
+#bio{
+    margin-top:-1rem;
+    padding: 12px;
+    margin-bottom: .5rem;
+    height: 5rem;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    background-color: #fcfcfb;
+}
+#bio:active,#bio:focus{
+    background-color:#FFFFFF;
+}
+#content:not([type="checkbox"],[type="div"]){
+    margin-top:-1rem;
+    padding: 12px;
+    margin-bottom: .5rem;
+    height: 5rem;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    width:50%;
+    background-color: #fcfcfb;
+}
+#content:active:not([type="checkbox"]),#content:focus:not([type="checkbox"],[type="div"]){
     background-color:#FFFFFF;
 }
 #page .title{
@@ -443,6 +499,46 @@ link-text{
     font-weight: 500;
     line-height: 24px;
 }
+#main{
+    margin-top:2rem;
+    margin-left:3rem;
+}
+#main input:not([type="checkbox"]){
+    outline: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    padding: 12px 12px 10px;
+    background-color: #fcfcfb;
+    width:50%;
+    
+    font-family: Noto Sans,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+#main input:not([type="checkbox"]):focus{
+    background-color:#FFFFFF;
+}
+.small-text{
+    font-family: Noto Sans,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+.small-text a{
+    font-family: IBMPlexSans,sans-serif;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+
+
+
 /* MEDIA STUFF */
 @media (max-width: 600px) {
   .nav .items .btn {
