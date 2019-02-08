@@ -139,6 +139,7 @@ window.onload = function() {
     document.getElementById("list").innerHTML =
       "Error loading posts. Device offline.";
   }
+  document.getElementById("sm-search-bar").style.display = "none";
   document.getElementById("search-btn").onclick = function(evt) {
     searchBtnClicked();
   };
