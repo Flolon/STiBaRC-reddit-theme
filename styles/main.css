@@ -427,10 +427,10 @@ link-text{
     padding: 8px;
     margin-bottom: .5rem;
     border-radius: 5px;
-    width:60%;
     height: 5rem;
     border-color:#838383;
-    background-color:#f7f7f7;
+    background-color:#fcfcfc;
+    width:60%;
 }
 #comtent:active,#comtent:focus{
     background-color:#FFFFFF;
@@ -468,6 +468,9 @@ link-text{
   #header-search-bar{
     width:500px !important;
   }
+    #comtent{
+        width:75%;
+    }
 }
 @media screen and (max-width: 920px){
   #header-search-bar{
@@ -483,6 +486,9 @@ link-text{
   #header-search-bar{
     width:320px !important;
   }
+    #comtent{
+        width:85%;
+    }
 }
 @media screen and (max-width: 750px){
   #header-search-bar{
@@ -502,6 +508,9 @@ link-text{
   #header-search-bar{
     width:200px !important;
   }
+    #comtent{
+        width:95%;
+    }
 }
 @media screen and (max-width: 600px){
   #header-search-bar{
@@ -573,6 +582,9 @@ link-text{
     padding:7px 2px;
     margin-right:4px;
   }
+    #comtent{
+        width:93%;
+    }
 }
 @media screen and (max-width: 310px){
   .small-q{
