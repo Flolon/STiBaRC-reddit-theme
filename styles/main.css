@@ -502,6 +502,7 @@ textarea:active,textarea:focus{
 #main{
     margin-top:2rem;
     margin-left:3rem;
+    margin-right:3rem;
 }
 #main input:not([type="checkbox"]){
     outline: 0;
@@ -585,10 +586,20 @@ textarea:active,textarea:focus{
     #comtent{
         width:85%;
     }
+  #main{
+    margin-left:2rem;
+    margin-right:2rem;
+  }
 }
 @media screen and (max-width: 750px){
   #header-search-bar{
     width:300px !important;
+  }
+  #main input:not([type="checkbox"]){
+    width:80%;
+  }
+  #main textarea{
+    width:80%;
   }
 }
 @media screen and (max-width: 720px){
@@ -600,6 +611,11 @@ textarea:active,textarea:focus{
   #header-search-bar{
     width:220px !important;
   }
+  #main{
+    margin-left:1.5rem;
+    margin-right:1.5rem;
+  }
+}
 @media screen and (max-width: 620px){
   #header-search-bar{
     width:200px !important;
@@ -611,6 +627,12 @@ textarea:active,textarea:focus{
 @media screen and (max-width: 600px){
   #header-search-bar{
     width:230px !important;
+  }
+  #main input:not([type="checkbox"]){
+    width:90%;
+  }
+  #main textarea{
+    width:90%;
   }
 }
 @media screen and (max-width: 565px){
@@ -631,6 +653,16 @@ textarea:active,textarea:focus{
 @media screen and (max-width: 510px){
   #header-search-bar{
     width:150px !important;
+  }
+  #main{
+    margin-left:0;
+    margin-right:1.75rem;
+  }
+  #main input:not([type="checkbox"]){
+    width:100%;
+  }
+  #main textarea{
+    width:100%;
   }
 }
 @media screen and (max-width: 480px){
