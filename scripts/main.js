@@ -56,17 +56,3 @@ function loadMore() {
     document.getElementById("loadmorecontainer").style.display = "none";
   }
 }
-
-
-
-//search btn //
-function searchBtnClicked(){
-  var searchBar = document.getElementById("sm-search-bar");
-  if(searchBar.style.display == "none"){
-    searchBar.style.display = "block";
-    searchBar.querySelector('input').autofocus = true;
-  }else{
-    searchBar.querySelector('input').autofocus = false;
-    searchBar.style.display = "none";
-  }
-}
