@@ -80,6 +80,10 @@ function doneLoading() {
 
 window.onload = function () {
     sessCheck();
+      document.getElementById("sm-search-bar").style.display = "none";
+      document.getElementById("search-btn").onclick = function(evt) {
+        searchBtnClicked();
+      };
     var id = getAllUrlParams().id;
     document.title = id + " - STiBaRC";
 	var id = getAllUrlParams().id;

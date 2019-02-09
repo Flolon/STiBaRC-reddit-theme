@@ -22,6 +22,10 @@ function doneLoading() {
 
 window.onload = function() {
     sessCheck();
+      document.getElementById("sm-search-bar").style.display = "none";
+      document.getElementById("search-btn").onclick = function(evt) {
+        searchBtnClicked();
+      };
 	var sess = window.localStorage.getItem("sess");
 	if (sess != undefined && sess != "") {
 		var xhr = new XMLHttpRequest();

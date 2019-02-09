@@ -152,6 +152,10 @@ function readFile(evt) {
 
 window.onload = function () {
     sessCheck();
+      document.getElementById("sm-search-bar").style.display = "none";
+      document.getElementById("search-btn").onclick = function(evt) {
+        searchBtnClicked();
+      };
 	document.getElementById("file").addEventListener('change',readFile,false);
 	document.getElementById("removeimage").onclick = function (evt) {
 			attachedfile = "none";

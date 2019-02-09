@@ -4,6 +4,10 @@
 //passwd.js
 window.onload = function() {
     sessCheck();
+      document.getElementById("sm-search-bar").style.display = "none";
+      document.getElementById("search-btn").onclick = function(evt) {
+        searchBtnClicked();
+      };
   var sess = window.localStorage.getItem("sess");
   document.getElementById("submit").onclick = function(evt) {
     document.getElementById("badopass").style.display = "none";

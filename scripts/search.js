@@ -42,6 +42,10 @@ function search() {
 var q;
 window.onload = function () {
     sessCheck();
+      document.getElementById("sm-search-bar").style.display = "none";
+      document.getElementById("search-btn").onclick = function(evt) {
+        searchBtnClicked();
+      };
     q = getAllUrlParams().q;
     var smSearchBar = document.getElementById("sm-search-bar");
     var searchBar = document.getElementById("header-search-bar");
