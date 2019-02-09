@@ -634,6 +634,9 @@ textarea:active,textarea:focus{
   #main textarea{
     width:90%;
   }
+    #comtent{
+        width:93%;
+    }
 }
 @media screen and (max-width: 565px){
   #header-search-bar{
