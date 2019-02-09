@@ -41,6 +41,7 @@ function search() {
 }
 var q;
 window.onload = function () {
+    sessCheck();
     q = getAllUrlParams().q;
     var smSearchBar = document.getElementById("sm-search-bar");
     var searchBar = document.getElementById("header-search-bar");
