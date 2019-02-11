@@ -31,18 +31,39 @@
     <div id="main">
         <img style="width:50px;border-radius: 50%" src="https://benfiles.tk/STiBaRC-logo.png">
         <h2>Sign in</h2>
+        <button id="login-btn" class="btn outline">STiBaRC Login</button><br />
         <div id="badnamepass" style="display: none;color: #ea0027;">Invalid username or password!<br><br></div>
         <div id="blank" style="display: none;color: #ea0027;">Username or password cannot be blank!<br><br></div>
         <input id="username" type="text" placeholder="Username" autofocus><br><br>
         <input id="password" type="password" placeholder="Password"><br><br>
         <button class="btn" id="login">Login</button><br>
         
-        <div class="small-text"><b>New to STiBaRC? <a href="register.html">Sign up</b></a></div>
+        <div class="small-text">New to STiBaRC? <a href="register.html">Sign up</a></div>
     </div>
 </div>
-              
+
   </div><!-- end body-content -->
   <script src="scripts/global.js"></script>
   <script src="scripts/login.js"></script>
+<script>
+var popuped = false;
+
+document.getElementById("login-btn").onclick = function(evt) {
+if (!popuped) {
+popuped = true;
+var loginpopup = window.open("https://stibarc.gq/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
+window.addEventListener("message", function(evt) {
+if (evt.data != "Cancelled") {
+localStorage.sess = evt.data;
+loginpopup.close();
+location.href = "index.html";
+} else {
+loginpopup.close();
+popuped = false;
+}
+});
+}
+}    
+</script>
       </body>
 </html>
