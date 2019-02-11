@@ -21,7 +21,7 @@ window.onload = function() {
       xhr.send("sess="+sess+"&old="+encodeURIComponent(opass)+"&new="+encodeURIComponent(npass)+"&new2="+encodeURIComponent(npass));
       xhr.onload = function(e) {
         if (xhr.responseText.split("\n")[0] == "Updated") {
-          location.href = "/";
+          location.href = "index.html";
         } else {
           document.getElementById("badopass").style.display = "";
         }
