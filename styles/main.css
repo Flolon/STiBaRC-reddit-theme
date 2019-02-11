@@ -536,7 +536,10 @@ textarea:active,textarea:focus{
     letter-spacing: .5px;
     text-transform: uppercase;
 }
-
+.profile-upload{
+    white-space: nowrap;
+    width: 50%;
+}
 
 
 
@@ -598,6 +601,10 @@ textarea:active,textarea:focus{
   #main input:not([type="checkbox"]){
     width:80%;
   }
+    .profile-upload{
+        vertical-align: middle;
+        width:80%;
+    }
   #main textarea{
     width:80%;
   }
@@ -631,6 +638,9 @@ textarea:active,textarea:focus{
   #main input:not([type="checkbox"]){
     width:90%;
   }
+    .profile-upload{
+        width: 90%;
+    }
   #main textarea{
     width:90%;
   }
@@ -664,6 +674,9 @@ textarea:active,textarea:focus{
   #main input:not([type="checkbox"]){
     width:100%;
   }
+    .profile-upload{
+        width:100%;
+    }
   #main textarea{
     width:100%;
   }
