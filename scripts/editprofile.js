@@ -26,8 +26,18 @@ window.onload = function() {
       document.getElementById("search-btn").onclick = function(evt) {
         searchBtnClicked();
       };
+    
+function getStuff(id) {
+	var thing = new XMLHttpRequest();
+	thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+	thing.send(null);
+	var tmp = JSON.parse(thing.responseText);
+	document.getElementById("pfp").src = tmp['pfp'];
+}
+    
 	var sess = window.localStorage.getItem("sess");
 	if (sess != undefined && sess != "") {
+            getStuff(window.localStorage.getItem("username"));
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST","https://api.stibarc.gq/userinfo.sjs",true);
 		xhr.send("sess="+sess);
