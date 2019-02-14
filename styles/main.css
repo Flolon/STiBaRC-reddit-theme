@@ -410,12 +410,6 @@ link-text{
 #page img{
     max-width: 100%;
 }
-#page video{
-  max-width:100%;
-}
-#page audio{
-  max-width:100%;
-}
 #username{
     color:inherit;
     font-weight: 500;
@@ -690,24 +684,6 @@ textarea:active,textarea:focus{
   #header-search-bar{
     width:130px !important;
   }
-}
-@media screen and (max-width: 460px){
-  #header-search-bar{
-    width:115px !important;
-  }
-}
-@media screen and (max-width: 455px){
-  .nav{
-    padding:0;
-  }
-  .nav .items{
-    margin-right:8px;
-  }
-  #header-search-bar{
-    width:100px !important;
-  }
-}
-@media screen and (max-width: 435px){
   #header-search-bar{
     display: none !important;
   }
@@ -717,6 +693,20 @@ textarea:active,textarea:focus{
   .small-q{
     display:inline-block;
   }
+}
+@media screen and (max-width: 460px){
+
+}
+@media screen and (max-width: 455px){
+  .nav{
+    padding:0;
+  }
+  .nav .items{
+    margin-right:8px;
+  }
+}
+@media screen and (max-width: 435px){
+
 }
 @media screen and (max-width: 355px){
   .nav{
@@ -739,4 +729,19 @@ textarea:active,textarea:focus{
   .small-q{
     margin-right:2px;
   }
+}
+#userstuffs .pfp-area{
+    margin:.5rem -1rem;
+    padding:.5rem 1rem;
+}
+#userstuffs #pfp{
+    display: inline-block;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    vertical-align: middle
+}
+.pfp-text{
+    display: inline-block;
+    vertical-align: middle
 }
