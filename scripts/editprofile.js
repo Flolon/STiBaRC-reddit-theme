@@ -43,6 +43,8 @@ function getStuff(id) {
 		xhr.send("sess="+sess);
 		xhr.onload = function(e) {
 			var tmp = JSON.parse(xhr.responseText);
+            profileLink = 'user.html?id=' + window.localStorage.getItem("username");
+            document.getElementById("profile-link").setAttribute('href', profileLink);
 			document.getElementById("name").value = tmp['name'];
 			document.getElementById("showname").checked = tmp['displayname'];
 			document.getElementById("email").value = tmp['email'];
