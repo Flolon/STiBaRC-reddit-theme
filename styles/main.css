@@ -410,6 +410,12 @@ link-text{
 #page img{
     max-width: 100%;
 }
+#page video{
+  max-width:100%;
+}
+#page audio{
+  max-width:100%;
+}
 #username{
     color:inherit;
     font-weight: 500;
