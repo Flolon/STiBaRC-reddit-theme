@@ -22,7 +22,7 @@ function post() {
 		var thing = new XMLHttpRequest();
 		thing.open("POST", "https://api.stibarc.gq/editpost.sjs", false);
 		thing.send("sess="+sess+"&id="+id+"&title="+encodeURIComponent(title)+"&content="+encodeURIComponent(content).replace(/%0A/g, "%0D%0A"));
-        //setTimeout(location.href = "post.html?id=" + id,500);
+		//location.href = "post.html?id=" + id;
 		document.getElementById("content").value = "";
 		document.getElementById("title").value = "";
 	}
