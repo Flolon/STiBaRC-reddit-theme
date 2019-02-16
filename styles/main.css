@@ -427,6 +427,15 @@ link-text{
     font-size: 90%;
     color:#3b3a3a
 }
+#edited{
+    color:#454545;
+    font-size: .85rem;
+    font-weight: 500;
+    display: inline-block;
+    background-color:#fcfcfc;
+    padding:1px 5px;
+    margin: .25rem 0 1rem 0;
+}
 #comment{
     padding:8px;
     border-radius: 5px;
@@ -496,13 +505,11 @@ textarea:active,textarea:focus{
 #content:active:not([type="checkbox"]),#content:focus:not([type="checkbox"],[type="div"]){
     background-color:#FFFFFF;
 }
-#page .title{
-    display: inline;
+#page #title{
+    display: block;
     color: rgb(26, 26, 27);
     overflow-wrap: break-word;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24px;
+    margin-bottom: .5rem;
 }
 #main{
     margin-top:2rem;
