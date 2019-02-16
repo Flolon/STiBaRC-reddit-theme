@@ -555,7 +555,7 @@ textarea:active,textarea:focus{
     font-weight: 500;
     border-radius: 2px;
     border-radius:3px;
-    padding:3px 5px;
+    padding:3px 6px;
     transition: background-color 0.1s ease 0s;
 }
 #editlink:hover{
