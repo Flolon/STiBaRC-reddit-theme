@@ -545,7 +545,22 @@ textarea:active,textarea:focus{
     white-space: nowrap;
     width: 50%;
 }
-
+#editlink {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+    color: rgb(40, 40, 41);
+    border:#dddddd solid 1px;
+    font-weight: 500;
+    border-radius: 2px;
+    border-radius:3px;
+    padding:3px 5px;
+    transition: background-color 0.1s ease 0s;
+}
+#editlink:hover{
+    background-color:#ededed;
+}
 
 
 /* MEDIA STUFF */
