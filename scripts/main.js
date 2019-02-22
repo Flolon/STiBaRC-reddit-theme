@@ -44,7 +44,7 @@ function getAnnounce() {
 	xhr.onload = function(e) {
 		if (xhr.responseText != "\n") {
 			var tmp = JSON.parse(xhr.responseText);
-			document.getElementById("announce").innerHTML += '<div class="note-light yellow"><h2>'+tmp['title']+'</h2><p>'+tmp['content']+'</p></div>';
+			document.getElementById("announce").innerHTML += '<div class="note-light yellow" style="margin:.35rem 0 1rem 0;"><h2>'+tmp['title']+'</h2><p>'+tmp['content']+'</p></div>';
 		}
 	}
 }
