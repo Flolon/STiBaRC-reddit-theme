@@ -17,6 +17,7 @@ window.onload = function() {
 	xhr.send("");
 	xhr.onload = function(e) {
 		var tmp = JSON.parse(xhr.responseText);
+        document.title = tmp.title+" | STiBaRC TV";
 		document.getElementById("title").innerHTML = tmp.title.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 		document.getElementById("streamer").innerHTML = tmp.streamer.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         document.getElementById("userLink").href = "user.html?id="+tmp.streamer.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
