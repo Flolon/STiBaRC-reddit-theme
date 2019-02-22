@@ -591,6 +591,20 @@ textarea:active,textarea:focus{
     padding: 3px 25px;
     width:120px;
 }
+.note-light{
+    background-color: #e5e9ec;
+    padding: 8px 10px;
+    border: 1px solid #c9d1da;
+    border-radius: 5px;
+}
+.note-light.yellow{
+    background-color: #fdf6e4;
+    border: 1px solid #afaba0;
+}
+.note-light h1,.note-light h2{
+    margin:.25rem 0 .5rem 0;
+}
+
 
 
 

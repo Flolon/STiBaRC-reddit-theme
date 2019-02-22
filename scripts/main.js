@@ -36,6 +36,19 @@ function toLink(id, item) {
   }
 }
 
+function getAnnounce() {
+	var sess = window.localStorage.getItem("sess");
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET","https://api.stibarc.gq/getannounce.sjs?sess="+sess,true);
+	xhr.send(null);
+	xhr.onload = function(e) {
+		if (xhr.responseText != "\n") {
+			var tmp = JSON.parse(xhr.responseText);
+			document.getElementById("announce").innerHTML += '<div class="note-light yellow"><h2>'+tmp['title']+'</h2>'+tmp['content']+'</div>';
+		}
+	}
+}
+
 var lastid = 1;
 
 function loadMore() {
