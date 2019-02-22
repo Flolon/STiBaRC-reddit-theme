@@ -443,8 +443,6 @@ link-text{
 }
 #page .button {
     text-decoration: none;
-    height: 24px;
-    width: 24px;
     font-size: 16px;
     line-height: 24px;
     cursor: pointer;
@@ -453,11 +451,16 @@ link-text{
     font-weight: 600;
     border-radius: 2px;
     border-radius:3px;
-    padding:7px 10px;
+    padding: 5px 10px;
     transition: background-color 0.1s ease 0s;
 }
 #page .button:hover{
     background-color:#ededed;
+}
+#page .button.vote{
+    padding: 7px 10px;
+    height: 24px;
+    width: 24px;
 }
 #page textarea {
     font-family: Noto Sans,sans-serif;
@@ -604,8 +607,95 @@ textarea:active,textarea:focus{
 .note-light h1,.note-light h2{
     margin:.25rem 0 .5rem 0;
 }
-
-
+.note-light p{
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+.sm-btn {
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 10px;
+    cursor: pointer;
+    color: rgb(40, 40, 41);
+    border: #dddddd solid 1px;
+    font-weight: 500;
+    border-radius: 2px;
+    border-radius: 3px;
+    padding: 5px 8px !important;
+    transition: background-color 0.1s ease 0s;
+}
+.sm-btn:hover{
+    background-color:#ededed;
+}
+.header-nav{
+    margin-top:1rem;
+}
+/* -- TV area --*/
+.tv-area video{
+    max-width: 100%;
+}
+.tv-area h1, .tv-area h2{
+    margin-top:1rem;
+}
+.tv-area .user-info-area{
+    margin:.5rem 0 1rem 0;
+    font-weight: 500;
+}
+.tv-area .streamer{
+    margin-top:.25rem;
+    display: block;
+    vertical-align: middle;
+    font-size: .95rem;
+    /* line-height: 0; */
+    color: rgba(0,0,0,0.88);
+    /* line-height: 0; */
+}
+.tv-area .user-info-area a{
+    text-decoration: none;
+    color: inherit;
+}
+.tv-area .pfp{
+    width: 35px;
+    height: 35px;
+    margin-right: 3px;
+    vertical-align: middle;
+    border-radius: 4px;
+}
+#userstuffs .pfp-area{
+    margin:.5rem -1rem;
+    padding:.5rem 1rem;
+}
+#userstuffs #pfp{
+    display: inline-block;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    vertical-align: middle
+}
+.pfp-text{
+    display: inline-block;
+    vertical-align: middle
+}
+.center-that-boi{
+    margin: 0 auto;
+    text-align: center;
+}
+.tv-area .form{
+    margin-top:1rem;
+}
+.middle{
+    vertical-align: middle;
+    display: inline-block;
+}
+.tv-area .admin-stream-info h4{
+    font-weight: 500;
+}
+.tv-area .admin-stream-info span{
+    font-weight: 600;
+}
+.tv-area #tv-admin-submit{
+    margin-top:1.25rem;
+}
 
 
 
@@ -817,19 +907,4 @@ textarea:active,textarea:focus{
   .small-q{
     margin-right:2px;
   }
-}
-#userstuffs .pfp-area{
-    margin:.5rem -1rem;
-    padding:.5rem 1rem;
-}
-#userstuffs #pfp{
-    display: inline-block;
-    width:64px;
-    height:64px;
-    border-radius:50%;
-    vertical-align: middle
-}
-.pfp-text{
-    display: inline-block;
-    vertical-align: middle
 }
