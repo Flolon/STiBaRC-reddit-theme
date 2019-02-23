@@ -633,6 +633,7 @@ textarea:active,textarea:focus{
 /* -- TV area --*/
 .tv-area video{
     max-width: 100%;
+    max-height: 70vh;
 }
 .tv-area h1, .tv-area h2{
     margin-top:1rem;
