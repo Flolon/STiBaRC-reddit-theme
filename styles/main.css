@@ -739,6 +739,7 @@ textarea:active,textarea:focus{
 .tv-area .live-chat{
     width:100%;
     height:250px;
+    overflow-y: scroll;
 }
 .tv-area .chat span{
     display: inline-block;
