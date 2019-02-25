@@ -61,10 +61,6 @@ function getTitle() {
 
 window.onload = function() {
     sessCheck();
-      document.getElementById("sm-search-bar").style.display = "none";
-      document.getElementById("search-btn").onclick = function(evt) {
-        searchBtnClicked();
-      };
 	getTitle();
 	setInterval(getTitle, 800);
 	var ws = new WebSocket("wss://stibarc.gq:8001");
