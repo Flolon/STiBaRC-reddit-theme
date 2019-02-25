@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+  <!-- CREDIT TO https://stibarc.gq -->
+  <!-- CREDIT TO https://reddit.com -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>STiBaRC TV Chat</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles/reddit-fonts.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <!-- START -->
+      <div class="tv-area frame">
+          <div class="chat-area full">
+              <div id="chat" class="live-chat">
+                  <div class="chat"><span>Test</span></div>
+              </div>
+          </div>
+      </div>
+      
+      
+      
+      
+      
+  <script src="scripts/global.js"></script>
+<script>
+// tv.js //
+function getStuff(id) {
+	var thing = new XMLHttpRequest();
+	thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+	thing.send(null);
+	var tmp = JSON.parse(thing.responseText);
+	//document.getElementById("pfp").src = tmp['pfp'];
+}
+window.onload = function() {
+	var ws = new WebSocket("wss://stibarc.gq:8001");
+	ws.onmessage = function(evt) {
+		if (evt.data == "/identified"){
+			
+		} else if (evt.data.split("/vc")[0] == "") {
+            if(evt.data.split(" ")[1] == "1"){
+                //document.getElementById("viewers").innerHTML = evt.data.split(" ")[1]+" Viewer";
+            }else{
+                //document.getElementById("viewers").innerHTML = evt.data.split(" ")[1]+" Viewers";
+            }
+		} else {
+			var user = evt.data.split(":")[0];
+			var message = evt.data.split(":");
+			message.splice(0,1);
+			message = message.join(":");
+			document.getElementById("chat").innerHTML = document.getElementById("chat").innerHTML+'<div class="chat"><span><a href=\"/user.html?id="+user+"\">'+user.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")+"</a>: "+message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br/>")+"</span></div>";
+			document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
+		}
+	}
+	ws.onopen = function(evt) {
+		ws.send("/viewcount");
+		if (localStorage.sess != "" && localStorage.sess != undefined) {
+			ws.send("/identify "+localStorage.sess);
+		}
+//		var shifted = false;
+//		document.getElementById("comtent").addEventListener("keydown", function(e) {
+//			if (e.keyCode == 16) {
+//				shifted = true;
+//			}
+//		});
+//		document.getElementById("comtent").addEventListener("keyup", function(e) {
+//			if (e.keyCode == 13 && shifted == false) {
+//				var message = document.getElementById("comtent").value;
+//				var tmp = message.split("\n");
+//				if (tmp[tmp.length-1] == "") {
+//					tmp.pop();
+//				}
+//				message = tmp.join("\n");
+//				if (message.trim() != "") {
+//					document.getElementById("comtent").value = "";
+//					ws.send("m:"+message);
+//				}
+//			}
+//			if (e.keyCode == 16) {
+//				shifted = false;
+//			}
+//		});
+//		document.getElementById("send").onclick = function(e) {
+//			var message = document.getElementById("comtent").value;
+//			if (message.trim() != "") {
+//				document.getElementById("comtent").value = "";
+//				ws.send("m:"+message);
+//			}
+//		};
+		setInterval(function() {ws.send("/viewcount");}, 500);
+	}
+}
+</script>
+      </body>
+</html>

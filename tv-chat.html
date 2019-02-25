@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>STiBaRC TV</title>
+    <title>STiBaRC TV Chat</title>
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
@@ -30,55 +30,116 @@
   </div>
 </div>
 
-<div class="body-content">
+<div class="body-content" style="min-height: auto;">
     <div class="sm-search-bar" id="sm-search-bar">
     <label for="sm-search-bar"><svg class="cHARgT" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path d="M12.4743167,11.1299698 L14.6957506,13.2817166 C15.0924476,13.665969 15.1025359,14.2990536 14.7182834,14.6957506 C14.334031,15.0924476 13.7009464,15.1025359 13.3042494,14.7182834 L11.0486163,12.5334103 C10.0079655,13.2768564 8.73367013,13.7142857 7.35714286,13.7142857 C3.84600096,13.7142857 1,10.8682847 1,7.35714286 C1,3.84600096 3.84600096,1 7.35714286,1 C10.8682847,1 13.7142857,3.84600096 13.7142857,7.35714286 C13.7142857,8.76975383 13.2536226,10.0747029 12.4743167,11.1299698 Z M11.7142857,7.35714286 C11.7142857,4.95057046 9.76371525,3 7.35714286,3 C4.95057046,3 3,4.95057046 3,7.35714286 C3,9.76371525 4.95057046,11.7142857 7.35714286,11.7142857 C9.76371525,11.7142857 11.7142857,9.76371525 11.7142857,7.35714286 Z"></path></g></svg></label><form action="search.html?q=" autocomplete="off" method="get"><input type="search" class="itxuZb" id="sm-search-bar" name="q" placeholder="Search STiBaRC" role="search" value=""></form></div>
-
-    <div id="page">
-    <div style="min-height: 75vh;">
-        <div id="mainblobwithlist" class="tv-area">
-        <h2 id="title">Loading...</h2>
-        <div class="user-info-area">
-            <a id="userLink" href="">
-                <img class="pfp" id="pfp" src="https://benfiles.tk/STiBaRC-logo.png">
-                <span class="inline-block">
-                  <span id="streamer">Loading...</span>
-                </span>
-            </a>
-            <br /><div class="live-viewers"><span id="viewers">Loading...</span></div>
-        </div>
-            
-        <center>
-            <div class="area">
-            <video style="/*display: inline-block*/" controls autoplay>
-            <source src="https://joshiepoo.gq:8443/stream" type="video/webm">
-            </video><br /><br/>
-            <div class="chat-area" style="/*display: inline-block*/">
-                <center><h4 class="chat-title">Live Chat</h4></center>
-                <div id="chat" class="live-chat">
-                    
-                </div>
-                <div class="chat-input-area-before">
-                    <div class="chat-input-area">
-                        <input type="text" class="input" id="comtent" autofocus> <button class="btn" id="send">Send</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </center>
-        </div>
-        <br />
+    <div class="tv-area">
+          <div class="chat-area full shadow">
+              <center><h4 class="chat-title">Live Chat</h4></center>
+              <div id="chat" class="live-chat">
+              </div>
+              <div class="chat-input-area-before">
+                  <div class="chat-input-area">
+                      <input type="text" class="input" id="comtent" autofocus> <button class="btn" id="send">Send</button>
+                  </div>
+              </div>
+          </div>
     </div>
-<footer>
-    <div class="center-that-boi"><a class="btn outline" style="display: inline-block;" href="tv-about.html">About</a> 
-        <span style="color:#888888;margin:0 .5rem;"> | </span> <a style="display: inline-block;" class="btn outline" href="tv-admin.html">Admin</a></div>    
-</footer>
 </div>
     
     
     
   </div><!-- end body-content -->
   <script src="scripts/global.js"></script>
-  <script src="scripts/tv.js"></script>
+<script>
+// tv.js //
+function getStuff(id) {
+	var thing = new XMLHttpRequest();
+	thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+	thing.send(null);
+	var tmp = JSON.parse(thing.responseText);
+	document.getElementById("pfp").src = tmp['pfp'];
+}
+// tv.js //
+function getTitle() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://stibarc.gq/tv/metadata.sjs", true);
+	xhr.send("");
+	xhr.onload = function(e) {
+		var tmp = JSON.parse(xhr.responseText);
+        document.title = tmp.title+" | STiBaRC TV";
+		//document.getElementById("title").innerHTML = tmp.title.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		//document.getElementById("streamer").innerHTML = tmp.streamer.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        //document.getElementById("userLink").href = "user.html?id="+tmp.streamer.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        //getStuff(tmp.streamer);
+	}
+}
+
+window.onload = function() {
+    sessCheck();
+      document.getElementById("sm-search-bar").style.display = "none";
+      document.getElementById("search-btn").onclick = function(evt) {
+        searchBtnClicked();
+      };
+	getTitle();
+	setInterval(getTitle, 800);
+	var ws = new WebSocket("wss://stibarc.gq:8001");
+	ws.onmessage = function(evt) {
+		if (evt.data == "/identified"){
+			
+		} else if (evt.data.split("/vc")[0] == "") {
+            if(evt.data.split(" ")[1] == "1"){
+                //document.getElementById("viewers").innerHTML = evt.data.split(" ")[1]+" Viewer";
+            }else{
+                //document.getElementById("viewers").innerHTML = evt.data.split(" ")[1]+" Viewers";
+            }
+		} else {
+			var user = evt.data.split(":")[0];
+			var message = evt.data.split(":");
+			message.splice(0,1);
+			message = message.join(":");
+			document.getElementById("chat").innerHTML = document.getElementById("chat").innerHTML+'<div class="chat"><span><a href=\"/user.html?id="+user+"\">'+user.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")+"</a>: "+message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br/>")+"</span></div>";
+			document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
+		}
+	}
+	ws.onopen = function(evt) {
+		ws.send("/viewcount");
+		if (localStorage.sess != "" && localStorage.sess != undefined) {
+			ws.send("/identify "+localStorage.sess);
+		}
+		var shifted = false;
+		document.getElementById("comtent").addEventListener("keydown", function(e) {
+			if (e.keyCode == 16) {
+				shifted = true;
+			}
+		});
+		document.getElementById("comtent").addEventListener("keyup", function(e) {
+			if (e.keyCode == 13 && shifted == false) {
+				var message = document.getElementById("comtent").value;
+				var tmp = message.split("\n");
+				if (tmp[tmp.length-1] == "") {
+					tmp.pop();
+				}
+				message = tmp.join("\n");
+				if (message.trim() != "") {
+					document.getElementById("comtent").value = "";
+					ws.send("m:"+message);
+				}
+			}
+			if (e.keyCode == 16) {
+				shifted = false;
+			}
+		});
+		document.getElementById("send").onclick = function(e) {
+			var message = document.getElementById("comtent").value;
+			if (message.trim() != "") {
+				document.getElementById("comtent").value = "";
+				ws.send("m:"+message);
+			}
+		};
+		setInterval(function() {ws.send("/viewcount");}, 500);
+	}
+}
+</script>
       </body>
 </html>
