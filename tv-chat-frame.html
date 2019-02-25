@@ -22,6 +22,8 @@ body{
   font-family: IBMPlexSans, Helvetica Neue, Segoe UI, Helvetica, Verdana, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color:transparent;
+  height: 100vh;
+  overflow: hidden;
 }
 div{
   margin: 0;
@@ -180,8 +182,12 @@ a{
     line-height: 1.41;
     -webkit-font-smoothing: antialiased;
 }
-.frame{
-    margin:0 0 .5rem 0;
+#frame{
+    margin: 0 0 .5rem 0;
+    overflow-y: scroll;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
 }
 .live-chat{
     width:100%;
@@ -203,8 +209,8 @@ a{
   </head>
   <body>
     <!-- START -->
-      <div class="frame">
-          <div class="chat-area full">
+      <div id="frame">
+          <div class="chat-area full" id="chat-area">
               <div id="chat" class="live-chat">
               </div>
           </div>
@@ -225,6 +231,7 @@ function getStuff(id) {
 	//document.getElementById("pfp").src = tmp['pfp'];
 }
 window.onload = function() {
+    document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
 	var ws = new WebSocket("wss://stibarc.gq:8001");
 	ws.onmessage = function(evt) {
 		if (evt.data == "/identified"){
@@ -241,7 +248,7 @@ window.onload = function() {
 			message.splice(0,1);
 			message = message.join(":");
 			document.getElementById("chat").innerHTML = document.getElementById("chat").innerHTML+'<div class="chat"><span><a href=\"/user.html?id="+user+"\">'+user.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")+"</a>: "+message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br/>")+"</span></div>";
-			document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
+			document.getElementById("frame").scrollTop = document.getElementById("frame").scrollHeight;
 		}
 	}
 	ws.onopen = function(evt) {
