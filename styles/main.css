@@ -537,6 +537,24 @@ textarea:active,textarea:focus{
 #main input:not([type="checkbox"]):focus{
     background-color:#FFFFFF;
 }
+.input:not([type="checkbox"]){
+    outline: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    padding: 12px 12px 10px;
+    background-color: #fcfcfb;
+    width:50%;
+    
+    font-family: Noto Sans,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+.input:not([type="checkbox"]):focus{
+    background-color:#FFFFFF;
+}
 .small-text{
     font-family: Noto Sans,sans-serif;
     font-size: 12px;
@@ -697,6 +715,71 @@ textarea:active,textarea:focus{
 .tv-area #tv-admin-submit{
     margin-top:1.25rem;
 }
+.tv-area .live-viewers{
+    margin: .5rem 0 0 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+.tv-area .chat-area{
+    padding:0;
+    background-color:#ffffff;
+    border:1px solid #c4c4c4;
+    border-radius: 5px;
+    overflow-y:auto;
+    word-wrap:break-word;
+}
+.tv-area .chat-title{
+    border-radius: 5px 5px 0 0;
+    margin:0 0 .5rem 0;
+    padding:.5rem 0;
+    border-bottom:1px solid #c4c4c4;
+    background-color:#faf9f9;
+    font-weight: 500;
+}
+.tv-area .live-chat{
+    width:100%;
+    height:250px;
+    margin:0 0 0 8px;
+}
+.tv-area .chat span{
+    display: inline-block;
+    padding:5px 13px;
+    margin:0 0 .25rem 0;
+    border-radius: 25px;
+    background-color:#f2f2f2;
+}
+.tv-area .chat-input-area-before{
+    border-top:1px solid #c4c4c4;
+    background-color:#faf9f9;
+    padding:0 8px;
+}
+.tv-area .chat-input-area{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+.tv-area .chat-input-area .input{
+    width: auto;
+    display: inline-block;
+    flex-grow: 1;
+}
+.tv-area .chat-input-area button{
+    width: 70px;
+    margin-left:5px;
+    height: 45px;
+}
+.tv-area .chat-input-area button:focus{
+    outline:0;
+}
+
+
+
+
 
 
 
