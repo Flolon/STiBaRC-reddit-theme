@@ -764,6 +764,8 @@ textarea:active,textarea:focus{
 }
 .full .live-chat{
     height: 100vh !important;
+    height:250px;
+    overflow-y: scroll;
 }
 .tv-area .chat span{
     text-align: left;
