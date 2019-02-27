@@ -767,13 +767,14 @@ textarea:active,textarea:focus{
     height:250px;
     overflow-y: scroll;
 }
-.tv-area .chat span{
+.tv-area .chat span {
     text-align: left;
     display: inline-block;
-    padding:5px 13px;
-    margin:0 0 .25rem 8px;
-    border-radius: 25px;
-    background-color:#f2f2f2;
+    padding: 5px 13px;
+    margin: 0 8px .25rem 8px;
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    max-width: 95%;
 }
 .tv-area .chat-input-area-before{
     border-top:1px solid #c4c4c4;

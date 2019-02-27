@@ -60,7 +60,6 @@ function getTitle() {
 }
 
 window.onload = function() {
-    sessCheck();
 	getTitle();
 	setInterval(getTitle, 800);
 	var ws = new WebSocket("wss://stibarc.gq:8001");
