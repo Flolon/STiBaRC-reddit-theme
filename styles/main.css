@@ -645,6 +645,9 @@ textarea:active,textarea:focus{
 .sm-btn:hover{
     background-color:#ededed;
 }
+.sm-btn:focus{
+    outline: 0;
+}
 .header-nav{
     margin-top:1rem;
 }
