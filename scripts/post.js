@@ -179,6 +179,8 @@ window.onload = function () {
 	checkVerified(stuff.poster);
 	if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-" || stuff.poster == "Bunnbuns") {
 		document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
+        // fix for reddit theme inside of reddit theme:
+        console.log("remove reddit theme"); document.getElementById("post-reddit-theme").disabled = true;
 	} else {
 		document.getElementById("content").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
 	}
