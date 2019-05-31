@@ -61,6 +61,9 @@ body:after{
   -ms-flex-direction: row;
   flex-direction: row
 }
+.light-text{
+  color:#afaba0;
+}
 .Home img{
   max-height: 32px;
   padding: 8px 0 8px 0;
@@ -831,6 +834,7 @@ textarea:active,textarea:focus{
 .frame .live-chat{
     margin: .5rem
 }
+
 
 
 
