@@ -443,6 +443,7 @@ link-text{
 #username{
     color:inherit;
     font-weight: 500;
+    color: #383838;
 }
 #page #verified{
     font-size: 90%
@@ -532,11 +533,13 @@ textarea:active,textarea:focus{
 #content:active:not([type="checkbox"]),#content:focus:not([type="checkbox"],[type="div"]){
     background-color:#FFFFFF;
 }
-#page #title{
+#page #title {
     display: block;
     color: rgb(26, 26, 27);
     overflow-wrap: break-word;
-    margin-bottom: .5rem;
+    margin-bottom: .25rem;
+    font-size: 1.75rem;
+    margin-top: 1rem;
 }
 #main{
     margin-top:2rem;
@@ -719,6 +722,11 @@ textarea:active,textarea:focus{
     border-radius:50%;
     vertical-align: middle
 }
+#dateandstuff {
+    font-size: 90%;
+    font-weight: 400;
+    color:rgb(107, 109, 111);
+}
 .pfp-text{
     display: inline-block;
     vertical-align: middle
@@ -834,7 +842,9 @@ textarea:active,textarea:focus{
 .frame .live-chat{
     margin: .5rem
 }
-
+.mb {
+    margin-bottom: .5rem;
+}
 
 
 

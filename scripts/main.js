@@ -5,7 +5,7 @@
 function toLink(id, item) {
   try {
     if (item["deleted"]) {
-      item["title"] = "Post deleted";
+      item["title"] = "<u>Post deleted</u>";
     }
     document.getElementById("list").innerHTML = document
       .getElementById("list")
@@ -49,23 +49,20 @@ function getAnnounce() {
 	}
 }
 
+
 var lastid = 1;
 
 function loadMore() {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open(
-    "GET",
-    "https://api.stibarc.gq/v2/getposts.sjs?id=" + lastid,
-    false
-  );
-  xmlHttp.send(null);
-  if (xmlHttp.responseText.trim() != "") {
-    var tmp = JSON.parse(xmlHttp.responseText);
-    var tmp2 = lastid - 1;
-    for (var i = tmp2; i > tmp2 - 20; i--) {
-      toLink(i, tmp[i]);
-    }
-  } else {
-    document.getElementById("loadmorecontainer").style.display = "none";
-  }
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs?id="+lastid, false);
+	xmlHttp.send(null);
+	if (xmlHttp.responseText.trim() != "") {
+		var tmp = JSON.parse(xmlHttp.responseText);
+		var tmp2 = lastid-1;
+		for (var i = tmp2; i > tmp2-20; i--) {
+			toLink(i,tmp[i]);
+		}
+	} else {
+		document.getElementById("loadmorecontainer").style.display = "none";
+	}
 }

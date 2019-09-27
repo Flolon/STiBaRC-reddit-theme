@@ -118,39 +118,29 @@ window.onload = function() {
   document.getElementById("loadmore").onclick = function(evt) {
     loadMore();
   };
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
-  try {
-    xmlHttp.send(null);
-  } catch (err) {
-    offline = true;
-  }
-  if (!offline) {
-    getAnnounce();
-    if (
-      window.localStorage.getItem("username") == "" ||
-      window.localStorage.getItem("username") == undefined
-    ) {
-      if (sess != undefined && sess != null && sess != "") {
-        getUsername();
-      }
-    }
-    var tmp = JSON.parse(xmlHttp.responseText);
-    document.getElementById("list").innerHTML = "";
-    for (var i = tmp["totalposts"]; i > tmp["totalposts"] - 20; i--) {
-      toLink(i, tmp[i]);
-    }
-    document.getElementById("loadmorecontainer").style.display = "";
-  } else {
-    document.getElementById("list").innerHTML =
-      "Error loading posts. Device offline.";
-  }
-  document.getElementById("sm-search-bar").style.display = "none";
-  document.getElementById("search-btn").onclick = function(evt) {
-    searchBtnClicked();
-  };
-  doneLoading();
-  startNotifs();
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
+	try {
+		xmlHttp.send(null);
+	} catch (err) {
+		offline = true;
+	}
+	if (!offline) {
+		getAnnounce();
+		if (window.localStorage.getItem("username") == "" || window.localStorage.getItem("username") == undefined) {
+			if (sess != undefined && sess != null && sess != "") {
+				getUsername();
+			}
+		}
+		var tmp = JSON.parse(xmlHttp.responseText);
+		document.getElementById("list").innerHTML = "";
+		for (var i = tmp['totalposts']; i > tmp['totalposts']-20; i--) {
+			toLink(i,tmp[i]);
+        }
+		document.getElementById("loadmorecontainer").style.display = "";
+	} else {
+		document.getElementById("list").innerHTML = "Error loading posts. Device offline.";
+	}
 };
 //search btn //
 function searchBtnClicked(){

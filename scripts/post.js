@@ -175,15 +175,22 @@ window.onload = function () {
 	var stuff = JSON.parse(xmlHttp.responseText);
 	document.getElementById("title").innerHTML = stuff.title.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 	document.title = stuff.title + " - STiBaRC";
-	document.getElementById("dateandstuff").innerHTML = 'Posted by <a id="username" href="user.html?id=' + stuff.poster + '">' + stuff.poster + '</a><span id="verified" title="Verified user" style="display:none">✔️</span> at ' + stuff.postdate;
+	if (localStorage.showpfps == "true") {
+		var thing2 = new XMLHttpRequest();
+		thing2.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + stuff.poster, false);
+		thing2.send(null);
+		var tmp2 = JSON.parse(thing2.responseText);
+		var posterpfp = tmp2['pfp'];
+		document.getElementById("postpfp").src = posterpfp + ' ';
+	} else {
+		document.getElementById("postpfp").style.display = "none";
+		document.getElementById("postname").style.marginLeft = "0px";
+	}
+	document.getElementById("postname").innerHTML = '<a id="username" href="user.html?id=' + stuff.poster + '">' + stuff.poster + '</a><span id="verified" title="Verified user" style="display:none">' + "✔️</span>";
+	document.getElementById("dateandstuff").innerHTML = stuff.postdate;
 	checkVerified(stuff.poster);
 	if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "-Verso-" || stuff.poster == "Bunnbuns") {
 		document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
-        // fix for reddit theme inside of reddit theme:
-        var postRedditThemeLink = document.getElementById("post-reddit-theme");
-        if(postRedditThemeLink){
-            console.log("remove reddit theme"); postRedditThemeLink.disabled = true;
-        }
 	} else {
 		document.getElementById("content").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
 	}
