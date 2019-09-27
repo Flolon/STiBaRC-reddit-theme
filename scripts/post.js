@@ -211,12 +211,22 @@ window.onload = function () {
 	if (xmlHttp.responseText != "undefined\n") {
 		var comments = JSON.parse(xmlHttp.responseText);
 		for (var key in comments) {
-			document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div id="comment"><a id="username" href="user.html?id=' + comments[key]['poster'] + '">' + comments[key]['poster'].replace(/&/g, "&amp;") + '</a><br/>' + comments[key]['content'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '<br/><a class="replyto" href="javascript:replyto('+"'"+comments[key]['poster']+"'"+')"><i>Reply</i></a></div><br/>';
+			var image = "";
+			if (localStorage.showpfps == "true") {
+				var thing3 = new XMLHttpRequest();
+				thing3.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + comments[key]['poster'], false);
+				thing3.send(null);
+				var tmp3 = JSON.parse(thing3.responseText);
+				var commentpfp = tmp3['pfp'];
+				image = '<img src="' + commentpfp + '"style="width:40px;height:40px;border-radius:50%;vertical-align:middle;margin-right:8px;" />';
+			}
+			document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div id="comment" class="mb"><div class="mb"><a id="username" href="user.html?id=' + comments[key]['poster'] + '">'+image+comments[key]['poster'].replace(/&/g, "&amp;") + '</a></div><div class="mb">' + comments[key]['content'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '</div><a class="replyto" href="javascript:replyto('+"'"+comments[key]['poster']+"'"+')"><i>Reply</i></a></div>';
 		}
 	} else {
 		document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div id="comment">No comments</div>';
 	}
-	document.getElementById("commentbutton").onclick = function (evt) {
+
+    document.getElementById("commentbutton").onclick = function (evt) {
 		if (!pushed) {
 			postcomment(id);
 		}
