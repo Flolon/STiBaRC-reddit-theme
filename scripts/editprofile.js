@@ -44,13 +44,12 @@ function getStuff(id) {
     
 	var sess = window.localStorage.getItem("sess");
 	if (sess != undefined && sess != "") {
-            getStuff(window.localStorage.getItem("username"));
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST","https://api.stibarc.gq/userinfo.sjs",true);
 		xhr.send("sess="+sess);
 		xhr.onload = function(e) {
 			var tmp = JSON.parse(xhr.responseText);
-            profileLink = 'user.html?id=' + window.localStorage.getItem("username");
+            profileLink = 'user.html?id='+window.localStorage.getItem("username");
             document.getElementById("profile-link").setAttribute('href', profileLink);
 			document.getElementById("name").value = tmp['name'];
 			document.getElementById("showname").checked = tmp['displayname'];
@@ -60,7 +59,8 @@ function getStuff(id) {
 			document.getElementById("showbday").checked = tmp['displaybirthday'];
 			document.getElementById("bio").value = tmp['bio'];
 			document.getElementById("showbio").checked = tmp['displaybio'];
-            document.getElementById("pfp").addEventListener('change', readFile, false);
+            document.getElementById("pfp-file").addEventListener('change', readFile, false);
+            getStuff(window.localStorage.getItem("username"));
             doneLoading();
 		}
 	} else {
@@ -86,6 +86,7 @@ function getStuff(id) {
 		}
 		xhr.send("sess="+sess+"&email="+encodeURIComponent(document.getElementById("email").value)+"&name="+encodeURIComponent(document.getElementById("name").value)+"&birthday="+encodeURIComponent(document.getElementById("birthday").value)+"&bio="+encodeURIComponent(document.getElementById("bio").value)+"&showemail="+showemail+"&showname="+showname+"&showbday="+showbday+"&showbio="+showbio);
 		xhr.onload = function(e) {
+            console.log("e");
 			window.location.href = "index.html";
 		}
 	}
