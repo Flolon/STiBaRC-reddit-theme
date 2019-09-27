@@ -16,7 +16,6 @@ function readFile(evt) {
 }
 
 function doneLoading() {
-    document.getElementById("load").style.display = "none";
     document.getElementById("page").style.display = "";
 }
 
