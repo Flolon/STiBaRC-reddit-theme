@@ -21,6 +21,14 @@ function doneLoading() {
 }
 
 window.onload = function() {
+	var showpfps = localStorage.showpfps;
+	if (showpfps == undefined) {showpfps = true; localStorage.showpfps = "true";}
+	if (showpfps == "true") {showpfps = true;} else {showpfps = false;}
+	document.getElementById("showpfp").checked = showpfps;
+	document.getElementById("showpfp").onchange = function() {
+		localStorage.showpfps = document.getElementById("showpfp").checked;
+	}
+    
     sessCheck();
       document.getElementById("sm-search-bar").style.display = "none";
       document.getElementById("search-btn").onclick = function(evt) {
