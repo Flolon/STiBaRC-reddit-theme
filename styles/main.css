@@ -12,6 +12,7 @@ input, textarea, [contenteditable] {
     font-family: Noto Sans, Helvetica Neue, Segoe UI, Helvetica, Verdana, Arial, sans-serif;
     font-size: 14px;
     line-height: 21px;
+    outline: none;
 }
 div{
   margin: 0;
@@ -533,13 +534,19 @@ textarea:active,textarea:focus{
 #content:active:not([type="checkbox"]),#content:focus:not([type="checkbox"],[type="div"]){
     background-color:#FFFFFF;
 }
-#page #title {
+#page #title:not(.newposttitle){
     display: block;
     color: rgb(26, 26, 27);
     overflow-wrap: break-word;
     margin-bottom: .25rem;
     font-size: 1.75rem;
     margin-top: 1rem;
+}
+.newposttitle{
+    display: block;
+    overflow-wrap: break-word;
+    margin-bottom: .5rem;
+    font-size: 1.25rem !important;
 }
 #main{
     margin-top:2rem;
