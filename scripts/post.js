@@ -218,7 +218,7 @@ window.onload = function () {
 				thing3.send(null);
 				var tmp3 = JSON.parse(thing3.responseText);
 				var commentpfp = tmp3['pfp'];
-				image = '<img src="' + commentpfp + '"style="width:40px;height:40px;border-radius:50%;vertical-align:middle;margin-right:8px;" />';
+				image = '<img src="' + commentpfp + '"class="pb" style="width:40px;height:40px;border-radius:50%;vertical-align:middle;margin-right:8px;" />';
 			}
 			document.getElementById("comments").innerHTML = document.getElementById("comments").innerHTML + '<div id="comment" class="mb"><div class="mb"><a id="username" href="user.html?id=' + comments[key]['poster'] + '">'+image+comments[key]['poster'].replace(/&/g, "&amp;") + '</a></div><div class="mb">' + comments[key]['content'].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>") + '</div><a class="replyto" href="javascript:replyto('+"'"+comments[key]['poster']+"'"+')"><i>Reply</i></a></div>';
 		}
