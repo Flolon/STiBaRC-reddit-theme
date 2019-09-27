@@ -510,16 +510,12 @@ textarea:active,textarea:focus{
     margin-bottom: .5rem;
 }
 #bio{
-    margin-top:-1rem;
     padding: 12px;
     margin-bottom: .5rem;
     min-height: 5rem;
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 4px;
     background-color: #fcfcfb;
-}
-#bio:active,#bio:focus{
-    background-color:#FFFFFF;
 }
 #content:not([type="checkbox"],[type="div"]){
     margin-top:-1rem;

@@ -36,15 +36,15 @@ function getPosts(id) {
 
 function getStuff(id) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+	thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
 	thing.send(null);
 	var tmp = JSON.parse(thing.responseText);
 	var rank = tmp['rank'];
 	var name = tmp['name'];
 	var email = tmp['email'];
 	//var posts = tmp['posts'];
-    var birthday = tmp['birthday'];
-	document.getElementById("username").innerHTML = id.concat('<span id="verified" title="Verified user" style="display:none">✔️</span>');
+	var birthday = tmp['birthday'];
+	document.getElementById("username").innerHTML = id.concat('<span id="verified" title="Verified user" style="display:none"✔️</span>');
 	document.getElementById("rank").innerHTML = "Rank: ".concat(rank);
 	document.getElementById("name").innerHTML = "Real name: ".concat(name.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
 	if (email != "Not shown" && email != "Not set") {
@@ -55,8 +55,28 @@ function getStuff(id) {
 	document.getElementById("bday").innerHTML = "Birthday: ".concat(birthday.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
 	//posts = posts.split(",");
 	document.getElementById("pfp").src = tmp['pfp'];
+	document.getElementById("followers").innerText = "Followers: "+tmp.followers.length;
+	document.getElementById("following").innerText = "Following: "+tmp.following.length;
+	if (localStorage.username != undefined && localStorage.sess != undefined) {
+		if (tmp.followers.indexOf(localStorage.username) != -1) {
+			document.getElementById("follow").innerText = "Following";
+			document.getElementById("follow").onclick = function(e) {
+				var xhrf = new XMLHttpRequest();
+				xhrf.open("POST", "https://api.stibarc.gq/v3/unfollow.sjs", false);
+				xhrf.send("sess="+localStorage.sess+"&id="+encodeURIComponent(id));
+				location.reload();
+			}
+		} else {
+			document.getElementById("follow").onclick = function(e) {
+				var xhrf = new XMLHttpRequest();
+				xhrf.open("POST", "https://api.stibarc.gq/v3/follow.sjs", false);
+				xhrf.send("sess="+localStorage.sess+"&id="+encodeURIComponent(id));
+				location.reload();
+			}
+		}
+	}
 	document.getElementById("posts").innerHTML = "";
-	getPosts(id);		
+	getPosts(id);
 	var showbio = false;
 	var bio = "";
 	document.getElementById("biobio").innerHTML = "";
@@ -69,10 +89,16 @@ function getStuff(id) {
 		document.getElementById("biobio").innerHTML = bio;
 	} else {
 		document.getElementById("bio").style.display = "none";
-    }
-    doneLoading();
+	}
+	if (tmp.keybase != undefined) {
+		document.getElementById("bio").style.display = "";
+		document.getElementById("biobio").innerHTML = document.getElementById("biobio").innerHTML+"<br/>"
+		for (var sig in tmp.keybase) {
+			document.getElementById("biobio").innerHTML = document.getElementById("biobio").innerHTML + '<br/>'+tmp.keybase[sig]["kb_username"]+' on Keybase: <a href="https://keybase.io/'+tmp.keybase[sig]["kb_username"]+'/sigs/'+tmp.keybase[sig]['sig_hash']+'"><img alt="Keybase proof status" src="https://keybase.io/'+tmp.keybase[sig]["kb_username"]+'/proof_badge/'+tmp.keybase[sig]['sig_hash']+'?domain=stibarc.gq&username='+getAllUrlParams().id+'"></a>'
+		}
+	}
+	doneLoading();
 }
-
 function doneLoading() {
     document.getElementById("load").style.display = "none";
     document.getElementById("page").style.display = "";
