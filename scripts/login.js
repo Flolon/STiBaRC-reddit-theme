@@ -1,5 +1,5 @@
 //
-//CREDIT TO https://stibarc.gq/
+//CREDIT TO https://stibarc.com/
 //
 //login.js
 function login() {
@@ -11,7 +11,7 @@ function login() {
 		var xmlHttp = new XMLHttpRequest();
 		//var appid = window.localStorage.getItem("appID");
 		//if (appid == "" || appid == null || appid == undefined) appid = "none";
-		xmlHttp.open("POST", "https://api.stibarc.gq/createsess.sjs", false);
+		xmlHttp.open("POST", "https://api.stibarc.com/createsess.sjs", false);
 		xmlHttp.send("username=" + username + "&password=" + password);
 		sess = xmlHttp.responseText;
 		if (sess != "Invalid username or password\n") {

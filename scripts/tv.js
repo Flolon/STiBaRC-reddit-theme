@@ -1,7 +1,7 @@
 // tv.js //
 function getStuff(id) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+	thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + id, false);
 	thing.send(null);
 	var tmp = JSON.parse(thing.responseText);
 	document.getElementById("pfp").src = tmp['pfp'];
@@ -9,7 +9,7 @@ function getStuff(id) {
 // tv.js //
 function getTitle() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "https://stibarc.gq/tv/metadata.sjs", true);
+	xhr.open("GET", "https://stibarc.com/tv/metadata.sjs", true);
 	xhr.send("");
 	xhr.onload = function(e) {
 		var tmp = JSON.parse(xhr.responseText);
@@ -29,7 +29,7 @@ window.onload = function() {
       };
 	getTitle();
 	setInterval(getTitle, 800);
-	var ws = new WebSocket("wss://stibarc.gq:8001");
+	var ws = new WebSocket("wss://stibarc.com:8001");
 	ws.onmessage = function(evt) {
 		if (evt.data == "/identified"){
 			

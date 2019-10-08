@@ -11,7 +11,7 @@ function register() {
 	if (username != "" && username != null && username != undefined && password != "" && password != null && password != undefined && password2 != "" && password2 != null && password2 != undefined) {
 		if (password == password2) {
 			var thing = new XMLHttpRequest();
-			thing.open("POST", "https://api.stibarc.gq/createuser.sjs", false);
+			thing.open("POST", "https://api.stibarc.com/createuser.sjs", false);
 			thing.send("username="+username+"&password="+password+"&password2="+password2+"&email="+email+"&showemail="+showemail+"&birthday="+bday+"&showbday="+showbday+"&name="+name);
 			if (thing.responseText == "Created\n") {
 				location.href = "login.html";

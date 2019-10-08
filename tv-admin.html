@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-  <!-- CREDIT TO https://stibarc.gq -->
+  <!-- CREDIT TO https://stibarc.com -->
   <!-- CREDIT TO https://reddit.com -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,7 +67,7 @@
             searchBtnClicked();
         };
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://stibarc.gq/tv/metadata.sjs", true);
+        xhr.open("GET", "https://stibarc.com/tv/metadata.sjs", true);
         xhr.send("");
         xhr.onload = function(e) {
             var tmp = JSON.parse(xhr.responseText);
@@ -76,7 +76,7 @@
         }
         document.getElementById("tv-admin-submit").onclick = function(e) {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST","https://stibarc.gq/tv/setmetadata.sjs",true);
+            xhr.open("POST","https://stibarc.com/tv/setmetadata.sjs",true);
             xhr.send("title="+document.getElementById("title").value+"&sess="+localStorage.sess);
             setTimeout(function(){
                 location.reload();
@@ -85,7 +85,7 @@
         document.getElementById("title").addEventListener("keyup", function(e) {
             if (e.keyCode == 13) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST","https://stibarc.gq/tv/setmetadata.sjs",true);
+                xhr.open("POST","https://stibarc.com/tv/setmetadata.sjs",true);
                 xhr.send("title="+document.getElementById("title").value+"&sess="+localStorage.sess);
                 location.reload();
             }
