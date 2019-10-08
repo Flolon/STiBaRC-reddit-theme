@@ -1,5 +1,5 @@
 //
-//CREDIT TO https://stibarc.gq/
+//CREDIT TO https://stibarc.com/
 //
 //global.js
 function getAllUrlParams(url) {
@@ -48,7 +48,7 @@ function toJSON(cookie) {
 
 var checkVerified = function(poster) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/checkverify.sjs?id=" + poster, false);
+	thing.open("GET", "https://api.stibarc.com/checkverify.sjs?id=" + poster, false);
 	thing.send(null);
 	var stuff = thing.responseText.split("\n")[0];
 	if (stuff == "true") {
@@ -58,7 +58,7 @@ var checkVerified = function(poster) {
 function getAnnounce() {
   var sess = window.localStorage.getItem("sess");
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.stibarc.gq/getannounce.sjs?sess=" + sess, true);
+  xhr.open("GET", "https://api.stibarc.com/getannounce.sjs?sess=" + sess, true);
   xhr.send(null);
   xhr.onload = function(e) {
     if (xhr.responseText != "\n") {
@@ -72,7 +72,7 @@ function checkSess() {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open(
     "get",
-    "https://api.stibarc.gq/checksess.sjs?sess=" + sess,
+    "https://api.stibarc.com/checksess.sjs?sess=" + sess,
     false
   );
   xmlHttp.send(null);
@@ -86,7 +86,7 @@ function checkSess() {
 function getUsername() {
   var sess = window.localStorage.getItem("sess");
   var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("POST", "https://api.stibarc.gq/getusername.sjs", false);
+  xmlHttp.open("POST", "https://api.stibarc.com/getusername.sjs", false);
   xmlHttp.send("sess=" + sess);
   window.localStorage.setItem("username", xmlHttp.responseText.split("\n")[0]);
 }
@@ -119,7 +119,7 @@ window.onload = function() {
     loadMore();
   };
 	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs", false);
+	xmlHttp.open("GET", "https://api.stibarc.com/v2/getposts.sjs", false);
 	try {
 		xmlHttp.send(null);
 	} catch (err) {

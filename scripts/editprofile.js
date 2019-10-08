@@ -1,5 +1,5 @@
 //
-//CREDIT TO https://stibarc.gq/
+//CREDIT TO https://stibarc.com/
 //
 //editprofile.js
 var pfp = "";
@@ -36,7 +36,7 @@ window.onload = function() {
     
 function getStuff(id) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/v2/getuser.sjs?id=" + id, false);
+	thing.open("GET", "https://api.stibarc.com/v2/getuser.sjs?id=" + id, false);
 	thing.send(null);
 	var tmp = JSON.parse(thing.responseText);
 	document.getElementById("pfp").src = tmp['pfp'];
@@ -45,7 +45,7 @@ function getStuff(id) {
 	var sess = window.localStorage.getItem("sess");
 	if (sess != undefined && sess != "") {
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST","https://api.stibarc.gq/userinfo.sjs",true);
+		xhr.open("POST","https://api.stibarc.com/userinfo.sjs",true);
 		xhr.send("sess="+sess);
 		xhr.onload = function(e) {
 			var tmp = JSON.parse(xhr.responseText);
@@ -70,7 +70,7 @@ function getStuff(id) {
 	document.getElementById("submit").onclick = function(evt) {
 		var sess = window.localStorage.getItem("sess");
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST","https://api.stibarc.gq/updateprofile.sjs",true);
+		xhr.open("POST","https://api.stibarc.com/updateprofile.sjs",true);
 		var showemail = document.getElementById("showemail").checked;
 		if (showemail == false) {showemail="";}
 		var showname = document.getElementById("showname").checked;
@@ -81,7 +81,7 @@ function getStuff(id) {
 		if (showbio == false) {showbio="";}
 		if (pfp.trim() != "") {
 			var xhr2 = new XMLHttpRequest();
-			xhr2.open("POST","https://api.stibarc.gq/updatepfp.sjs",true);
+			xhr2.open("POST","https://api.stibarc.com/updatepfp.sjs",true);
 			xhr2.send("sess="+localStorage.sess+"&data="+encodeURIComponent(pfp));
 		}
 		xhr.send("sess="+sess+"&email="+encodeURIComponent(document.getElementById("email").value)+"&name="+encodeURIComponent(document.getElementById("name").value)+"&birthday="+encodeURIComponent(document.getElementById("birthday").value)+"&bio="+encodeURIComponent(document.getElementById("bio").value)+"&showemail="+showemail+"&showname="+showname+"&showbday="+showbday+"&showbio="+showbio);

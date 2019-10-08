@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-  <!-- CREDIT TO https://stibarc.gq -->
+  <!-- CREDIT TO https://stibarc.com -->
   <!-- CREDIT TO https://reddit.com -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +58,7 @@ var popuped = false;
 document.getElementById("login-btn").onclick = function(evt) {
 if (!popuped) {
 popuped = true;
-var loginpopup = window.open("https://stibarc.gq/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
+var loginpopup = window.open("https://stibarc.com/login/", "", "menubar=no,location=no,resizable=no,scrollbars=yes,status=yes,height=360,width=500");
 window.addEventListener("message", function(evt) {
 if (evt.data != "Cancelled") {
 localStorage.sess = evt.data;

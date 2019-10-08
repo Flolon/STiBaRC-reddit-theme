@@ -1,10 +1,10 @@
 //
-//CREDIT TO https://stibarc.gq/
+//CREDIT TO https://stibarc.com/
 //
 //user.js
 /*var toLink = function (item) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/gettitle.sjs?id=" + item, false);
+	thing.open("GET", "https://api.stibarc.com/gettitle.sjs?id=" + item, false);
 	thing.send(null);
 	var title = thing.responseText;
 	try {
@@ -26,7 +26,7 @@ function toLink(item) {
 
 function getPosts(id) {
 	var tmp = new XMLHttpRequest();
-	tmp.open("GET", "https://api.stibarc.gq/getuserposts.sjs?id="+id, false);
+	tmp.open("GET", "https://api.stibarc.com/getuserposts.sjs?id="+id, false);
 	tmp.send(null);
 	tmp = tmp.responseText.split("\n");
 	for (i = 0; i < tmp.length - 1; i++) {
@@ -36,7 +36,7 @@ function getPosts(id) {
 
 function getStuff(id) {
 	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.gq/v3/getuser.sjs?id=" + id, false);
+	thing.open("GET", "https://api.stibarc.com/v3/getuser.sjs?id=" + id, false);
 	thing.send(null);
 	var tmp = JSON.parse(thing.responseText);
 	var rank = tmp['rank'];
@@ -62,14 +62,14 @@ function getStuff(id) {
 			document.getElementById("follow").innerText = "Following";
 			document.getElementById("follow").onclick = function(e) {
 				var xhrf = new XMLHttpRequest();
-				xhrf.open("POST", "https://api.stibarc.gq/v3/unfollow.sjs", false);
+				xhrf.open("POST", "https://api.stibarc.com/v3/unfollow.sjs", false);
 				xhrf.send("sess="+localStorage.sess+"&id="+encodeURIComponent(id));
 				location.reload();
 			}
 		} else {
 			document.getElementById("follow").onclick = function(e) {
 				var xhrf = new XMLHttpRequest();
-				xhrf.open("POST", "https://api.stibarc.gq/v3/follow.sjs", false);
+				xhrf.open("POST", "https://api.stibarc.com/v3/follow.sjs", false);
 				xhrf.send("sess="+localStorage.sess+"&id="+encodeURIComponent(id));
 				location.reload();
 			}
@@ -94,7 +94,7 @@ function getStuff(id) {
 		document.getElementById("bio").style.display = "";
 		document.getElementById("biobio").innerHTML = document.getElementById("biobio").innerHTML+"<br/>"
 		for (var sig in tmp.keybase) {
-			document.getElementById("biobio").innerHTML = document.getElementById("biobio").innerHTML + '<br/>'+tmp.keybase[sig]["kb_username"]+' on Keybase: <a href="https://keybase.io/'+tmp.keybase[sig]["kb_username"]+'/sigs/'+tmp.keybase[sig]['sig_hash']+'"><img alt="Keybase proof status" src="https://keybase.io/'+tmp.keybase[sig]["kb_username"]+'/proof_badge/'+tmp.keybase[sig]['sig_hash']+'?domain=stibarc.gq&username='+getAllUrlParams().id+'"></a>'
+			document.getElementById("biobio").innerHTML = document.getElementById("biobio").innerHTML + '<br/>'+tmp.keybase[sig]["kb_username"]+' on Keybase: <a href="https://keybase.io/'+tmp.keybase[sig]["kb_username"]+'/sigs/'+tmp.keybase[sig]['sig_hash']+'"><img alt="Keybase proof status" src="https://keybase.io/'+tmp.keybase[sig]["kb_username"]+'/proof_badge/'+tmp.keybase[sig]['sig_hash']+'?domain=stibarc.com&username='+getAllUrlParams().id+'"></a>'
 		}
 	}
 	doneLoading();

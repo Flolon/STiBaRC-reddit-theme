@@ -1,5 +1,5 @@
 //
-//CREDIT TO https://stibarc.gq/
+//CREDIT TO https://stibarc.com/
 //
 //main.js
 function toLink(id, item) {
@@ -39,12 +39,12 @@ function toLink(id, item) {
 function getAnnounce() {
 	var sess = window.localStorage.getItem("sess");
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET","https://api.stibarc.gq/getannounce.sjs?sess="+sess,true);
+	xhr.open("GET","https://api.stibarc.com/getannounce.sjs?sess="+sess,true);
 	xhr.send(null);
 	xhr.onload = function(e) {
 		if (xhr.responseText != "\n") {
 			var tmp = JSON.parse(xhr.responseText);
-			document.getElementById("announce").innerHTML += '<div class="note-light yellow" style="margin:.35rem 0 1rem 0;"><h2>'+tmp['title']+'</h2><p>'+tmp['content'].replace('href="https://stibarc.gq/tv/"', 'href="tv.html"')+'</p></div>';
+			document.getElementById("announce").innerHTML += '<div class="note-light yellow" style="margin:.35rem 0 1rem 0;"><h2>'+tmp['title']+'</h2><p>'+tmp['content'].replace('href="https://stibarc.com/tv/"', 'href="tv.html"')+'</p></div>';
 		}
 	}
 }
@@ -54,7 +54,7 @@ var lastid = 1;
 
 function loadMore() {
 	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("GET", "https://api.stibarc.gq/v2/getposts.sjs?id="+lastid, false);
+	xmlHttp.open("GET", "https://api.stibarc.com/v2/getposts.sjs?id="+lastid, false);
 	xmlHttp.send(null);
 	if (xmlHttp.responseText.trim() != "") {
 		var tmp = JSON.parse(xmlHttp.responseText);
