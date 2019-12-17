@@ -2,23 +2,13 @@
 //CREDIT TO https://stibarc.com/
 //
 //user.js
-/*var toLink = function (item) {
-	var thing = new XMLHttpRequest();
-	thing.open("GET", "https://api.stibarc.com/gettitle.sjs?id=" + item, false);
-	thing.send(null);
-	var title = thing.responseText;
-	try {
-		document.getElementById("posts").innerHTML = document.getElementById("posts").innerHTML.concat('<li><a href="post.html?id=').concat(item).concat('">').concat(title).concat("</a></li>");
-	} catch (err) {
-		console.log("Whoops");
-	}
-}*/
+var posts = '';
 
 function toLink(item) {
 	try {
 		var i = item.indexOf(':');
 		var splits = [item.slice(0, i), item.slice(i + 1)];
-		document.getElementById("posts").innerHTML = document.getElementById("posts").innerHTML.concat('<a href="post.html?id=').concat(splits[0])+'"><div class="user-post"><div class="post-list-boi"><b>'.concat(splits[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat("</b></div></div></a>");
+		posts += '<a href="post.html?id='.concat(splits[0])+'"><div class="user-post"><div class="post-list-boi"><b>'.concat(splits[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")).concat("</b></div></div></a>");
 	} catch (err) {
 		console.log("Whoops");
 	}
@@ -32,6 +22,7 @@ function getPosts(id) {
 	for (i = 0; i < tmp.length - 1; i++) {
 		toLink(tmp[i]);
 	}
+    document.getElementById('posts').innerHTML = posts;
 }
 
 function getStuff(id) {
