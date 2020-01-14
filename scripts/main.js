@@ -5,7 +5,7 @@
 function toLink(id, item) {
   try {
     if (item["deleted"]) {
-      item["title"] = "<u>Post deleted</u>";
+      item["title"] = "Post deleted";
     }
     document.getElementById("list").innerHTML = document
       .getElementById("list")
