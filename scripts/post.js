@@ -150,7 +150,7 @@ function doneLoading() {
 }
 
 function greenify() {
-	var content = document.getElementById("content").innerHTML;
+	var content = document.getElementById("postContent").innerHTML;
 	var tmp = content.split("<br>");
 	for (var i = 0; i < tmp.length; i++) {
 		if (tmp[i].split("")[0] == "&" && tmp[i].split("")[1] == "g" && tmp[i].split("")[2] == "t" && tmp[i].split("")[3] == ";" && tmp[i].split("")[4] != " ") {
@@ -158,7 +158,7 @@ function greenify() {
 			tmp[i] = '<span style="color:green;">'+tmp[i]+"</span>"
 		}
 	}
-	document.getElementById("content").innerHTML = tmp.join("<br>");
+	document.getElementById("postContent").innerHTML = tmp.join("<br>");
 }
 
 window.onload = function () {
@@ -190,9 +190,9 @@ window.onload = function () {
 	document.getElementById("dateandstuff").innerHTML = stuff.postdate;
 	checkVerified(stuff.poster);
 	if (stuff.poster == "herronjo" || stuff.poster == "DomHupp" || stuff.poster == "Aldeenyo" || stuff.poster == "savaka" || stuff.poster == "alluthus" || stuff.poster == "Bunnbuns") {
-		document.getElementById("content").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
+		document.getElementById("postContent").innerHTML = stuff.content.replace(/\r\n/g, "<br/>");
 	} else {
-		document.getElementById("content").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
+		document.getElementById("postContent").innerHTML = stuff.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\r\n/g, "<br/>");
 	}
 	greenify();
 	if (stuff['edited'] == true) {
