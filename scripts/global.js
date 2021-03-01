@@ -37,14 +37,7 @@ function getAllUrlParams(url) {
 	return obj;
 }
 
-function toJSON(cookie) {
-	var output = {};
-	cookie.split(/\s*;\s*/).forEach(function (pair) {
-		pair = pair.split(/\s*=\s*/);
-		output[pair[0]] = pair.splice(1).join('=');
-	});
-	return output;
-}
+if (localStorage.showpfps == undefined) {localStorage.showpfps = "true";}
 
 var checkVerified = function(poster) {
 	var thing = new XMLHttpRequest();
